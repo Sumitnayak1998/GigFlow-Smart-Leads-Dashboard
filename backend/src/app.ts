@@ -19,7 +19,7 @@ const allowedOrigins = new Set([
 app.use(
   cors({
     origin: (origin, callback) => {
-      if (!origin || allowedOrigins.has(origin)) {
+      if (!origin || allowedOrigins.has(origin) || allowedOrigins.has("*")) {
         callback(null, true);
         return;
       }
